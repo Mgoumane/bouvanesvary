@@ -6,7 +6,7 @@ export default class ProductDisplay extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            showFrom : false,
+            showForm : false,
             products : []
         };
         this.handleShowFormBtn = this.handleShowFormBtn.bind(this);
@@ -30,7 +30,7 @@ export default class ProductDisplay extends React.Component{
     handleShowFormBtn=function (){
         this.setState((prevState) => {
             return {
-                showFrom: !prevState.showFrom
+                showForm: !prevState.showForm
             }
         });
     };
@@ -48,10 +48,10 @@ export default class ProductDisplay extends React.Component{
             <>
                 <h1>Gestion de produits</h1>
                 <button onClick={this.handleShowFormBtn}>
-                    {this.state.showFrom ? "Afficher la liste" : "Ajouter un produit"}
+                    {this.state.showForm ? "Afficher la liste" : "Ajouter un produit"}
                 </button>
                 {
-                    this.state.showFrom ? 
+                    this.state.showForm ? 
                     <ProductForm/> 
                     : 
                     <ProductTable 
