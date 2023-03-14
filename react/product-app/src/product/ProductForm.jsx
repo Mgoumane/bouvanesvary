@@ -16,7 +16,7 @@ export default function ProductForm(props) {
             case "name":
                 console.log("name");
                 let tab = ['@','$', '&','%'];
-                
+
                 if (value.length < 2 && value.length>0 || value.indexOf("@") !== -1) {
                     setName(value);
                     setErreur2("Erreur de saisie");
@@ -25,6 +25,7 @@ export default function ProductForm(props) {
                     setName(value);
                     setErreur2("");
                 }
+                break;  
             case "price":
                 console.log("price");
                 if (value < 0) {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../api/api";
 import useFetch from "../hooks/useFetch";
 import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
@@ -12,7 +13,7 @@ export default function ProductDisplay(props) {
     // const error = obj.error
     // const products1 = obj.data
     const { data: products, setData: setProducts, error, status } =
-        useFetch("http://localhost:7070/products")
+        useFetch(API_BASE_URL+"/products")
     // const [products, setProducts] = useState([]);
 
     //componentDidMount
@@ -42,7 +43,7 @@ export default function ProductDisplay(props) {
         // setShowForm((oldShowForm) => setShowForm(!oldShowForm))
     }
     const deleteProduct = (id) => {
-        fetch("http://localhost:7070/products/"+id,{
+        fetch(API_BASE_URL+"/admin/products/"+id,{
             method: "delete"
         }).then( (res)=>{
             if (res.ok) {
@@ -63,7 +64,7 @@ export default function ProductDisplay(props) {
         const headers = new Headers();
         headers.set("Content-Type","application/json");
 
-        fetch("http://localhost:7070/products", {
+        fetch(API_BASE_URL+"/admin/products", {
             method: "POST",
             body: JSON.stringify(product), // Sérialisation JS => JSON
             headers: headers
